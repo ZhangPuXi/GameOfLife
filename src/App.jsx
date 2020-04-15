@@ -110,6 +110,8 @@ class App extends React.Component {
     );
   }
 
+  getNextFrameTimer = null
+
   getNextFrame = () => {
     const { chessData } = this.state;
 
@@ -117,19 +119,29 @@ class App extends React.Component {
 
     this.setState( {
       chessData : nextChessData
+    }, () => {
+      this.setGetNextFrameTimer();
     } );
   }
 
-  componentDidMount() {
-    setTimeout( () => {
+  setGetNextFrameTimer() {
+    if ( this.getNextFrameTimer ) {
+      clearTimeout( this.getNextFrameTimer );
+    }
+
+    this.getNextFrameTimer = setTimeout( () => {
       this.getNextFrame();
     }, 1000 );
   }
 
-  componentDidUpdate() {
-    setTimeout( () => {
-      this.getNextFrame();
-    }, 1000 );
+  componentDidMount() {
+    this.setGetNextFrameTimer();
+  }
+
+  componentWillUnmount() {
+    if ( this.getNextFrameTimer ) {
+      clearTimeout( this.getNextFrameTimer );
+    }
   }
 }
 
