@@ -13,12 +13,12 @@ const getRandomChessData = () => {
   const rowCount    = 36;
   const columnCount = 64;
 
-  if ( Math.floor( Math.random() * 2 ) > 1 ) {
+  if ( Math.floor( Math.random() * 2 ) ) {
     result = chessDataSet[ Math.floor( Math.random() * chessDataSet.length ) ];
   } else {
     while ( result.length < rowCount ) {
       while ( row.length < columnCount ) {
-        row.push( Math.floor( Math.random() * 2 ) < 1 ? 0 : 1 );
+        row.push( Math.floor( Math.random() * 2 ) );
       }
 
       result.push( [ ...row ] );
