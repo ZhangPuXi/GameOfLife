@@ -16,7 +16,7 @@ class Row extends React.Component {
         {
           chessRow.map( ( item, index ) => {
             return (
-              <Cell key={ index } data={ item } />
+              <Cell key={ 'Cell' + index } data={ item } />
             );
           } )
         }
