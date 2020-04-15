@@ -121,9 +121,13 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    const { chessData } = this.state;
+    setTimeout( () => {
+      this.getNextFrame();
+    }, 1000 );
+  }
 
-    setInterval( () => {
+  componentDidUpdate() {
+    setTimeout( () => {
       this.getNextFrame();
     }, 1000 );
   }
