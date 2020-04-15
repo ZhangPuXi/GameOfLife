@@ -1,0 +1,15 @@
+.liveCell {
+  width            : 20px;
+  height           : 20px;
+  background-color : #4889db;
+  margin           : 2px;
+  transition       : all 0.5s;
+}
+
+.diedCell {
+  width            : 20px;
+  height           : 20px;
+  background-color : #dddddd;
+  margin           : 2px;
+  transition       : all 0.5s;
+}
